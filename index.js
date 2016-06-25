@@ -84,4 +84,14 @@ Geo.prototype.getDepartment = function(params, callback) {
   });
 }
 
+Geo.prototype.getTownsOfDepartment = function(params, callback) {
+  if (!params) return callback('MISSING_PARAMETERS');
+  if (!params.code) return callback('MISSING_CODE');
+  var url = apiUrl + 'departements/' + params.code + '/communes/?';
+  if (params.fields) url = (url.substr(url.length-1, 1) === '?' ? url + 'fields=' + params.fields : url + '&fields=' + params.fields);
+  req('GET', url, null, function(error, result) {
+    if (error) return callback(error);
+    else return callback(null, result);
+  });
+}
 module.exports = Geo;
