@@ -94,4 +94,15 @@ Geo.prototype.getTownsOfDepartment = function(params, callback) {
     else return callback(null, result);
   });
 }
+
+Geo.prototype.getRegions = function(params, callback) {
+  var url = apiUrl + 'regions/?';
+  if (params.code) url = (url.substr(url.length-1, 1) === '?' ? url + 'code=' + params.code : url + '&code=' + params.code);
+  if (params.nom) url = (url.substr(url.length-1, 1) === '?' ? url + 'nom=' + params.nom : url + '&nom=' + params.nom);
+  if (params.fields) url = (url.substr(url.length-1, 1) === '?' ? url + 'fields=' + params.fields : url + '&fields=' + params.fields);
+  req('GET', url, null, function(error, result) {
+    if (error) return callback(error);
+    else return callback(null, result);
+  });
+}
 module.exports = Geo;
