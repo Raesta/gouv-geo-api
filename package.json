@@ -1,0 +1,19 @@
+{
+  "name": "gouv-geo-api",
+  "version": "0.0.1",
+  "description": "gouv-geo-api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raesta/gouv-geo-api.git"
+  },
+  "author": "Raesta <Contact@raesta.net> (Raesta)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Raesta/gouv-geo-api/issues"
+  },
+  "homepage": "https://github.com/Raesta/gouv-geo-api#readme"
+}
