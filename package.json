@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Raesta/gouv-geo-api/issues"
   },
-  "homepage": "https://github.com/Raesta/gouv-geo-api#readme"
+  "homepage": "https://github.com/Raesta/gouv-geo-api#readme",
+  "dependencies": {
+    "request": "^2.72.0"
+  }
 }
