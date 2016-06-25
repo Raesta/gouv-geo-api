@@ -47,4 +47,18 @@ Geo.prototype.getTowns = function(params, callback) {
   });
 }
 
+Geo.prototype.getTown = function(params, callback) {
+  if (!params) return callback('MISSING_PARAMETERS');
+  if (!params.code) return callback('MISSING_CODE');
+  var url = apiUrl + 'communes/' + params.code + '?';
+  if (params.code) url = (url.substr(url.length-1, 1) === '?' ? url + 'code=' + params.code : url + '&code=' + params.code);
+  if (params.fields) url = (url.substr(url.length-1, 1) === '?' ? url + 'fields=' + params.fields : url + '&fields=' + params.fields);
+  if (params.format) url = (url.substr(url.length-1, 1) === '?' ? url + 'format=' + params.format : url + '&format=' + params.format);
+  if (params.geometry) url = (url.substr(url.length-1, 1) === '?' ? url + 'geometry=' + params.geometry : url + '&geometry=' + params.geometry);
+  req('GET', url, null, function(error, result) {
+    if (error) return callback(error);
+    else return callback(null, result);
+  });
+}
+
 module.exports = Geo;
