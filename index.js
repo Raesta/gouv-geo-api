@@ -61,4 +61,16 @@ Geo.prototype.getTown = function(params, callback) {
   });
 }
 
+Geo.prototype.getDepartments = function(params, callback) {
+  var url = apiUrl + 'departements/?';
+  if (params.code) url = (url.substr(url.length-1, 1) === '?' ? url + 'code=' + params.code : url + '&code=' + params.code);
+  if (params.codeRegion) url = (url.substr(url.length-1, 1) === '?' ? url + 'codeRegion=' + params.codeRegion : url + '&codeRegion=' + params.codeRegion);
+  if (params.nom) url = (url.substr(url.length-1, 1) === '?' ? url + 'nom=' + params.nom : url + '&nom=' + params.nom);
+  if (params.fields) url = (url.substr(url.length-1, 1) === '?' ? url + 'fields=' + params.fields : url + '&fields=' + params.fields);
+  req('GET', url, null, function(error, result) {
+    if (error) return callback(error);
+    else return callback(null, result);
+  });
+}
+
 module.exports = Geo;
