@@ -1,6 +1,6 @@
 {
   "name": "gouv-geo-api",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "gouv-geo-api",
   "main": "index.js",
   "scripts": {
